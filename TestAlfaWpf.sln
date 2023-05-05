@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAlfaWpf", "TestAlfaWpf\TestAlfaWpf.csproj", "{A8E8DC2C-4D5F-433A-9658-A82645A07054}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8E8DC2C-4D5F-433A-9658-A82645A07054}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8E8DC2C-4D5F-433A-9658-A82645A07054}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8E8DC2C-4D5F-433A-9658-A82645A07054}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8E8DC2C-4D5F-433A-9658-A82645A07054}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54B778BB-B9AB-4C80-9E34-71969924D238}
+	EndGlobalSection
+EndGlobal
