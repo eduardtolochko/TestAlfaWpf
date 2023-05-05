@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestAlfaWpf
 {
-    internal class Class1
+    internal class Channel
     {
     }
 }
