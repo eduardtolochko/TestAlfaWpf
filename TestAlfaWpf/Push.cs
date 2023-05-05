@@ -26,11 +26,11 @@ namespace TestAlfaWpf
 
                 using (FileStream fstream = File.OpenRead(path))
                 {
-                    // выделяем массив для считывания данных из файла
+ 
                     byte[] buffer = new byte[fstream.Length];
-                    // считываем данные
+   
                     await fstream.ReadAsync(buffer, 0, buffer.Length);
-                    // декодируем байты в строку
+
                     string textFromFile = Encoding.Default.GetString(buffer);
                     Console.WriteLine($"Текст из файла: {textFromFile}");
                 }
