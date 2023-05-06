@@ -1,4 +1,10 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace TestAlfaWpf
 {
@@ -6,16 +12,16 @@ namespace TestAlfaWpf
     {
         public static class ReadData
         {
-            public static Channels ReadXML()
+            public static Channel ReadXML()
             {
-                Channels channels;
+                Channel channels;
 
-                string path = @"C:\Users\User\Downloads\data.xml";
+                string path = @"C:\Users\n.tolochka\Downloads\data.xml";
 
-                XmlSerializer serializer = new XmlSerializer(typeof(Channels));
+                XmlSerializer serializer = new XmlSerializer(typeof(Channel));
 
                 StreamReader reader = new StreamReader(path);
-                channels = (Channels)serializer.Deserialize(reader);
+                channels = (Channel)serializer.Deserialize(reader);
                 reader.Close();
                 Console.WriteLine("Данные считаны");
                 return channels;

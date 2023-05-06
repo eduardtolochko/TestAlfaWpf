@@ -20,36 +20,44 @@ namespace TestAlfaWpf
     /// </summary>
     public partial class Window1 : Window
     {
+        private Channel[] channelList;
+
         public Window1()
         {
             InitializeComponent();
         }
-            private void XMLDataBase(object sender, RoutedEventArgs e)
+
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void XMLDataBase(object sender, RoutedEventArgs e)
             ///Read data from a file using a data model.
             {
-                channelList = ReadData.ReadXMLDataBase().ChannelList;
+                channelList = ReadData.ReadXML().ChannelList;
             }
 
             private void XMLRegularExpressions(object sender, RoutedEventArgs e)
             ///Read data from a file using regular expressions
             {
-                channelList = ReadData.ReadXMLRegularExpressions().ChannelList;
+                channelList = ReadData.ReadXMLRegular().ChannelList;
             }
 
-            private void AddExel(object sender, RoutedEventArgs e)
+            private async Task AddExel(object sender, RoutedEventArgs e)
             ///Write data to excel
             {
                 WriteData.WriteAddExel(channelList);
                 channelList = null;
             }
 
-            private async void AddWord(object sender, RoutedEventArgs e)
+            private async Task AddWord(object sender, RoutedEventArgs e)
             ///Write data to word
             {
                 WriteData.WriteAddWord(channelList);
                 channelList = null;
             }
-            private async void AddTxt(object sender, RoutedEventArgs e)
+            private async Task AddTxt(object sender, RoutedEventArgs e)
             ///Write data to txt
             {
                 WriteData.WriteAddTxt(channelList);
