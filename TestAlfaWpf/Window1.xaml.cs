@@ -57,7 +57,7 @@ namespace TestAlfaWpf
                 WriteData.WriteAddWord(channelList);
                 channelList = null;
             }
-            private async Task AddTxt(object sender, RoutedEventArgs e)
+            private async Task AddJson(object sender, RoutedEventArgs e)
             ///Write data to txt
             {
                 WriteData.WriteAddTxt(channelList);
