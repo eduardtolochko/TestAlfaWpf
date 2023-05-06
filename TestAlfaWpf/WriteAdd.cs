@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using Excel = Microsoft.Office.Interop.Excel;
+using Exсel = Microsoft.Office.Interop.Excel;
 using Word = Microsoft.Office.Interop.Word;
 using Newtonsoft.Json;
 using System.Formats.Tar;
@@ -14,7 +14,7 @@ namespace TestAlfaWpf
 {
     internal class WriteAdd
     {
-        public static void WriteAddWord(Channel[] channelList)
+        public static void WriteAddWord(Item[] channelList)
         {
             ///Write data to word
             {
@@ -42,7 +42,7 @@ namespace TestAlfaWpf
 
                     Word.Paragraph para1 = document.Content.Paragraphs.Add(ref missing);
 
-                    foreach (Channel channel in channelList)
+                    foreach (Item channel in channelList)
                     {
                         para1.Range.Text = $"\t{channel.title} " + Environment.NewLine;
                         para1.Range.Text = $"\t{channel.link}" + Environment.NewLine;
@@ -68,11 +68,40 @@ namespace TestAlfaWpf
                 }
             }
         }
-        public static void WriteAddExel(Channel[] channelList)
+        public static void WriteAddExel(Item[] channelList)
         ///Write data to excel
         {
 
+        }
+
+        public async Task WriteAddJson(Item[] channelList)
+        ///Write data to Json
+        {
+            using (FileStream fs = new FileStream("user.json", FileMode.OpenOrCreate))
+            {
+                Person tom = new Person("Tom", 37);
+                await JsonSerializer.SerializeAsync<Person>(fs, tom);
+                Console.WriteLine("Data has been saved to file");
+            }
+
+            // чтение данных
+            using (FileStream fs = new FileStream("user.json", FileMode.OpenOrCreate))
+            {
+                Person? person = await JsonSerializer.DeserializeAsync<Person>(fs);
+                Console.WriteLine($"Name: {person?.Name}  Age: {person?.Age}");
+            }
 
         }
+                class Person
+                {
+                    public string Name { get; }
+                    public int Age { get; set; }
+                    public Person(string name, int age)
+                {
+                    Name = name;
+                    Age = age;
+                }
+            }
+    
     }
 }

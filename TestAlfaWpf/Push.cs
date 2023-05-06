@@ -10,25 +10,28 @@ namespace TestAlfaWpf
 {
     public class Push
     {
-        public static class ReadData
+        public class ReadData
         {
-            public static Channel ReadXML()
+            public async Task <Item> ReadXML()
             {
-                Channel channels;
+                Item channel;
 
-                string path = @"C:\Users\n.tolochka\Downloads\data.xml";
+                string path = @"data.xml";
 
                 XmlSerializer serializer = new XmlSerializer(typeof(Channel));
 
                 StreamReader reader = new StreamReader(path);
-                channels = (Channel)serializer.Deserialize(reader);
+                channel = (Item) serializer.Deserialize(reader);
                 reader.Close();
+
+                await Task.Delay(1000);
+
                 Console.WriteLine("Данные считаны");
-                return channels;
+                return channel;
             }
-            public static async void ReadXMLRegular()
+            public static async Task ReadXMLRegular()
             {
-                string path = @"C:\Users\User\Downloads\data.xml";
+                string path = @"data.xml";
 
                 using (FileStream fstream = File.OpenRead(path))
                 {

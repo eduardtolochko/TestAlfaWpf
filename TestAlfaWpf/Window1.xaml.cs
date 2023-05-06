@@ -21,10 +21,14 @@ namespace TestAlfaWpf
     public partial class Window1 : Window
     {
         private Channel[] channelList;
+        private ReadData readData;
+
+        public object WriteData { get; private set; }
 
         public Window1()
         {
             InitializeComponent();
+            readData = new ReadData();
         }
 
         private void InitializeComponent()
@@ -32,13 +36,14 @@ namespace TestAlfaWpf
             throw new NotImplementedException();
         }
 
-        private void XMLDataBase(object sender, RoutedEventArgs e)
+        private async Task XMLDataBase(object sender, RoutedEventArgs e)
             ///Read data from a file using a data model.
             {
-                channelList = ReadData.ReadXML().ChannelList;
+                channelList = await readData.ReadXML().ChannelList;
+
             }
 
-            private void XMLRegularExpressions(object sender, RoutedEventArgs e)
+            private async Task XMLRegular(object sender, RoutedEventArgs e)
             ///Read data from a file using regular expressions
             {
                 channelList = ReadData.ReadXMLRegular().ChannelList;
@@ -60,7 +65,7 @@ namespace TestAlfaWpf
             private async Task AddJson(object sender, RoutedEventArgs e)
             ///Write data to txt
             {
-                WriteData.WriteAddTxt(channelList);
+                WriteData.WriteAddJson(channelList);
                 channelList = null;
             }
     }
